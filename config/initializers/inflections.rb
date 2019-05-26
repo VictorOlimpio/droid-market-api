@@ -19,4 +19,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'tipo', 'tipos'
   inflect.irregular 'peca', 'pecas'
   inflect.irregular 'demanda', 'demandas'
+  inflect.irregular 'situacao', 'situacoes'
 end
