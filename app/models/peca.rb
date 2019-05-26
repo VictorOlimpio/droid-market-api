@@ -1,0 +1,2 @@
+class Peca < ApplicationRecord
+end

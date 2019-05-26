@@ -1,0 +1,2 @@
+class Demanda < ApplicationRecord
+end

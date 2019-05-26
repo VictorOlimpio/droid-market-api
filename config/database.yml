@@ -1,0 +1,16 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: droid_development
+  username: root
+  password: tzzk7662
+
+test: &test
+  adapter: mysql2
+  encoding: utf8
+  database: droid_test
+  username: root
+  password: tzzk7662
+
+cucumber:
+  <<: *test
