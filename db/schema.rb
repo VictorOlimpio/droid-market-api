@@ -13,6 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_05_26_020504) do
 
   create_table "demandas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "usuario_id"
+    t.bigint "peca_id"
     t.string "rua"
     t.string "bairro"
     t.string "cidade"
@@ -23,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_05_26_020504) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "situacao"
+    t.index ["peca_id"], name: "index_demandas_on_peca_id"
+    t.index ["usuario_id"], name: "index_demandas_on_usuario_id"
   end
 
   create_table "pecas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

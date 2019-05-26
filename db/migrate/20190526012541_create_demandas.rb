@@ -1,6 +1,8 @@
 class CreateDemandas < ActiveRecord::Migration[5.2]
   def change
     create_table :demandas do |t|
+      t.references :usuario
+      t.references :peca
       t.integer :status
       t.string :rua
       t.string :bairro
