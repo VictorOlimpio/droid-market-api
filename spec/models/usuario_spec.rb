@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Usuario, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Usuario do
+
+  subject { Usuario.new }
+
+  describe 'validations' do
+    it { is_expected.to have_many(:demandas) }
+  end
 end

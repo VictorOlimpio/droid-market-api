@@ -1,8 +1,8 @@
 class Usuario < ApplicationRecord
-  enum tipo: %i[administrador anunciante]
+  enum tipo: %i[anunciante administrador]
 
   has_many :demandas
 
   validates :nome, :cpf, presence: true
-  validates :tipos, inclusion: { in: Usuario.tipos.keys }
+  validates :tipo, inclusion: { in: Usuario.tipos.keys }
 end

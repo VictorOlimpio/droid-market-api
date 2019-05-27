@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Usuario.destroy_all
+Peca.destroy_all
+Demanda.destroy_all
+
+puts 'Criando Anunciantes'
+
+Faker::Config.locale = 'pt-BR'
+
+10.times do
+  Usuario.create!(nome: Faker::Name.name,
+                  email: Faker::Internet.email,
+                  cpf: Faker::CPF.numeric.to_s,
+                  telefone: Faker::PhoneNumber.phone_number,
+                  tipo: 0)
+end
+
+puts 'Criando Administrador'
+
+Usuario.create!(nome: Faker::Name.name,
+                email: Faker::Internet.email,
+                cpf: Faker::CPF.numeric,
+                telefone: Faker::PhoneNumber.phone_number,
+                tipo: 1)
+
+puts 'Criando Peças'

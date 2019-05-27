@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.2'
 # Database
 gem 'mysql2'
 
+gem 'active_model_serializers'
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+  gem 'cpf_faker'
 end
 
 group :development do
@@ -37,9 +39,9 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
-  gem 'shoulda-matchers', require: false
-  gem 'simplecov', require: false
+  # gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'rack_session_access'
 end
 

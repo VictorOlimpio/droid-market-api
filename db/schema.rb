@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_020504) do
 
   create_table "usuarios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
-    t.integer "cpf"
+    t.string "cpf"
     t.string "telefone"
     t.string "email"
     t.integer "tipo"

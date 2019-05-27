@@ -7,4 +7,5 @@ class Demanda < ApplicationRecord
 
   validates :rua, :bairro, :cidade, :uf, :numero, :cep, presence: true
   validates :situacao, inclusion: { in: Demanda.situacoes.keys }
+
 end
