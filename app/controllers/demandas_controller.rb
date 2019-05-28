@@ -4,17 +4,17 @@ class DemandasController < ApplicationController
   def index
     @demandas = Demanda.all
     filter_by_situacao if params[:situacao]
-    render json: @demandas
+    render json: @demandas.as_json
   end
 
   def show
-    render json: @demanda
+    render json: @demanda.as_json
   end
 
   def create
     @demanda = Demanda.new(demanda_params)
-    @demanda.save? ? render(json: @demanda, status: :created) :
-        render(json: demanda.errors, status: :unprocessable_entity)
+    @demanda.save ? render(json: @demanda, status: :created) :
+        render(json: @demanda.errors, status: :unprocessable_entity)
   end
 
   def destroy

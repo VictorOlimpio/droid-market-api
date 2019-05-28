@@ -5,7 +5,7 @@ class CreateUsuarios < ActiveRecord::Migration[5.2]
       t.string :cpf
       t.string :telefone
       t.string :email
-      t.integer :tipo
+      t.integer :tipo, default: 0
 
       t.timestamps
     end

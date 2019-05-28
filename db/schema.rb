@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_020504) do
     t.text "complemento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "situacao"
+    t.integer "situacao", default: 0
     t.index ["peca_id"], name: "index_demandas_on_peca_id"
     t.index ["usuario_id"], name: "index_demandas_on_usuario_id"
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_020504) do
     t.string "cpf"
     t.string "telefone"
     t.string "email"
-    t.integer "tipo"
+    t.integer "tipo", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

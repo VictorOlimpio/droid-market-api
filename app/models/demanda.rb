@@ -8,4 +8,18 @@ class Demanda < ApplicationRecord
   validates :rua, :bairro, :cidade, :uf, :numero, :cep, presence: true
   validates :situacao, inclusion: { in: Demanda.situacoes.keys }
 
+  def contato
+    {nome: self.usuario.nome,
+     email: self.usuario.email,
+     telefone: self.usuario.telefone}
+  end
+
+  def descricao
+    self.peca.descricao
+  end
+
+  def as_json
+    super(methods: [:contato, :descricao])
+  end
+
 end

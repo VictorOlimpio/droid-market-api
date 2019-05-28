@@ -6,4 +6,8 @@ class Usuario < ApplicationRecord
   validates :nome, :cpf, presence: true
   validates :cpf, uniqueness: true
   validates :tipo, inclusion: { in: Usuario.tipos.keys }
+
+  def as_json(options={})
+    super(only: :name)
+  end
 end
