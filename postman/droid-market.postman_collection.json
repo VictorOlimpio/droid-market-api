@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "a49f41b0-caf1-49d5-8f97-8cf8e9a66de5",
+		"name": "droid-market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/usuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Victor Olimpio\",\n\t\"email\": \"victor@olimpio.com\",\n\t\"cpf\": \"12345678910\",\n\t\"telefone\": \"987654321\",\n\t\"tipo\": 1\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				},
+				"description": "Index de usuarios"
+			},
+			"response": []
+		}
+	]
+}
