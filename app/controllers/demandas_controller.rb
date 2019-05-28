@@ -1,10 +1,10 @@
 class DemandasController < ApplicationController
-  before_action :set_demanda, only: [:show, :destroy]
+  before_action :set_demanda, except: [:index, :create]
 
   def index
     @demandas = Demanda.all
     filter_by_situacao if params[:situacao]
-    render json: @demandas.as_json
+    @demandas.any? ? render(json: @demandas.as_json) : render(json: @demandas)
   end
 
   def show
@@ -13,14 +13,17 @@ class DemandasController < ApplicationController
 
   def create
     @demanda = Demanda.new(demanda_params)
-    @demanda.save ? render(json: @demanda, status: :created) :
+    @demanda.save ? render(json: @demanda.as_json, status: :created) :
+        render(json: @demanda.errors, status: :unprocessable_entity)
+  end
+
+  def update
+    @demanda.update(demanda_params) ? render(json: @demanda.as_json) :
         render(json: @demanda.errors, status: :unprocessable_entity)
   end
 
   def destroy
-    unless @demanda.destroy
-      render @demanda.errors
-    end
+    render @demanda.errors unless @demanda.destroy
   end
 
   private

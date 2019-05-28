@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: :show
+  before_action :set_usuario, except: [:index, :create]
 
   def index
     @usuarios = Usuario.all.order(:nome)
@@ -14,6 +14,11 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
     @usuario.save ? render(status: :created) :
         render(json: @usuario.errors, status: :unprocessable_entity)
+  end
+
+  def destroy
+    destruidor = Destruidor::Usuario.new(@usuario)
+    render json: destruidor.errors unless destruidor.salvar
   end
 
   private

@@ -18,8 +18,9 @@ class Demanda < ApplicationRecord
     self.peca.descricao
   end
 
-  def as_json
-    super(methods: [:contato, :descricao])
+  def as_json(options={})
+    super(root: true,
+        methods: [:contato, :descricao])
   end
 
 end

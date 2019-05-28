@@ -16,10 +16,19 @@ class PecasController < ApplicationController
         render(json: @peca.errors, status: :unprocessable_entity)
   end
 
+  def destroy
+    destruidor = Destruidor::Peca.new(@peca)
+    render json: destruidor.errors unless destruidor.salvar
+  end
+
   private
 
   def set_peca
     @peca = Peca.find(params[:id])
+  end
+
+  def load_demandas
+    demandas = @peca.demandas if @peca.demandas.any?
   end
 
   def peca_params
