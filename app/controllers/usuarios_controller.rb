@@ -16,6 +16,11 @@ class UsuariosController < ApplicationController
         render(json: @usuario.errors, status: :unprocessable_entity)
   end
 
+  def update
+    @usuario.update(usuario_params) ? render(json: @usuario) :
+        render(json: @usuario.errors, status: :unprocessable_entity)
+  end
+
   def destroy
     destruidor = Destruidor::Usuario.new(@usuario)
     render json: destruidor.errors unless destruidor.salvar

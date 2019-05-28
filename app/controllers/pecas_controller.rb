@@ -1,5 +1,5 @@
 class PecasController < ApplicationController
-  before_action :set_peca, only: [:show, :destroy]
+  before_action :set_peca, except: [:index, :create]
 
   def index
     @pecas = Peca.all
@@ -16,6 +16,11 @@ class PecasController < ApplicationController
         render(json: @peca.errors, status: :unprocessable_entity)
   end
 
+  def update
+    @peca.update(peca_params) ? render(json: @peca) :
+        render(json: @peca.errors, status: :unprocessable_entity)
+  end
+
   def destroy
     destruidor = Destruidor::Peca.new(@peca)
     render json: destruidor.errors unless destruidor.salvar
@@ -25,10 +30,6 @@ class PecasController < ApplicationController
 
   def set_peca
     @peca = Peca.find(params[:id])
-  end
-
-  def load_demandas
-    demandas = @peca.demandas if @peca.demandas.any?
   end
 
   def peca_params
