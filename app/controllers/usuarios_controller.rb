@@ -10,6 +10,12 @@ class UsuariosController < ApplicationController
     render json: @usuario
   end
 
+  def create
+    @usuario = Usuario.new(usuario_params)
+    @usuario.save ? render(status: :created) :
+        render(json: @usuario.errors, status: :unprocessable_entity)
+  end
+
   private
 
   def set_usuario

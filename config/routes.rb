@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :usuarios, only: [:index, :show]
+  resources :usuarios, except: [:destroy]
   resources :pecas
   resources :demandas
 end
