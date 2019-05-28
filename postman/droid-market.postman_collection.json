@@ -34,6 +34,26 @@
 			"response": []
 		},
 		{
+			"name": "localhost:3000/usuarios/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/usuarios/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"1"
+					]
+				},
+				"description": "show de um usuario"
+			},
+			"response": []
+		},
+		{
 			"name": "localhost:3000/usuarios",
 			"request": {
 				"method": "GET",
@@ -49,6 +69,293 @@
 					]
 				},
 				"description": "Index de usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/usuarios/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Victor Olimpio\",\n\t\"email\": \"victor@olimpio.com\",\n\t\"cpf\": \"12345678910\",\n\t\"telefone\": \"987654321\",\n\t\"tipo\": 0\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/usuarios/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "atualiza usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/usuarios/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/usuarios/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"1"
+					]
+				},
+				"description": "destroi usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/pecas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"tipo\": 1,\n\t\"descricao\": \"Peca responsavel pela identificacao de alvos e orientação da mobilidade\",\n\t\"valor\": 1000.00\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/pecas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pecas"
+					]
+				},
+				"description": "cria uma peca"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/pecas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pecas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pecas"
+					]
+				},
+				"description": "index de peças"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/pecas/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pecas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pecas",
+						"1"
+					]
+				},
+				"description": "show de peça"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/pecas/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"tipo\": 3\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/pecas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pecas",
+						"1"
+					]
+				},
+				"description": "atualiza peça"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/pecas/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pecas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pecas",
+						"1"
+					]
+				},
+				"description": "deleta peça"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/demandas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 123,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n}\n\n\t"
+				},
+				"url": {
+					"raw": "localhost:3000/demandas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas"
+					]
+				},
+				"description": "cria uma demanda"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/demandas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/demandas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas"
+					]
+				},
+				"description": "index de demandas"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/demandas/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 12,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/demandas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "edita uma demanda"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/demandas/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/demandas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas",
+						"1"
+					]
+				},
+				"description": "deleta demanda"
 			},
 			"response": []
 		}
