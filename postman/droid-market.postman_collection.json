@@ -6,10 +6,51 @@
 	},
 	"item": [
 		{
-			"name": "localhost:3000/usuarios",
+			"name": "SIGN_UP",
 			"request": {
 				"method": "POST",
 				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"victor.olimpio@exemplo.com\",\n\t\"password\": \"12345678\",\n\t\"password_confirmation\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/auth/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						""
+					]
+				},
+				"description": "sign_up"
+			},
+			"response": []
+		},
+		{
+			"name": "SIGN_IN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vdn.api+json",
+						"type": "text"
+					},
 					{
 						"key": "Content-Type",
 						"value": "application/json",
@@ -18,7 +59,42 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"Victor Olimpio\",\n\t\"email\": \"victor@olimpio.com\",\n\t\"cpf\": \"12345678910\",\n\t\"telefone\": \"987654321\",\n\t\"tipo\": 1\n}"
+					"raw": "{\n\t\"email\": \"victor.olimpio@exemplo.com\",\n\t\"password\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/auth/sign_in",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"sign_in"
+					]
+				},
+				"description": "sign_in"
+			},
+			"response": []
+		},
+		{
+			"name": "CADASTRO DE USUARIO",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Victor Olimpio\",\n\t\"email\": \"victor@olimpio.com\",\n\t\"cpf\": \"3245678\",\n\t\"telefone\": \"987654321\"\n\t\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/usuarios",
@@ -34,10 +110,16 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/usuarios/1",
+			"name": "SHOW DE USUARIO",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/usuarios/1",
 					"host": [
@@ -54,10 +136,16 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/usuarios",
+			"name": "INDEX DE USUARIOS",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/usuarios",
 					"host": [
@@ -73,7 +161,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/usuarios/1",
+			"name": "UPDATE DE USUARIO",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -82,12 +170,13 @@
 						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"Victor Olimpio\",\n\t\"email\": \"victor@olimpio.com\",\n\t\"cpf\": \"12345678910\",\n\t\"telefone\": \"987654321\",\n\t\"tipo\": 0\n}"
-				},
 				"url": {
 					"raw": "localhost:3000/usuarios/1",
 					"host": [
@@ -111,10 +200,16 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/usuarios/1",
+			"name": "DELETE DE USUARIO",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/usuarios/1",
 					"host": [
@@ -131,13 +226,18 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/pecas",
+			"name": "CADASTRO DE PEÇA",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
 						"type": "text"
 					}
 				],
@@ -160,10 +260,16 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/pecas",
+			"name": "INDEX DE PEÇAS",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/pecas",
 					"host": [
@@ -179,7 +285,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/pecas/1",
+			"name": "SHOW DE PEÇA",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -199,7 +305,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/pecas/1",
+			"name": "UPDATE DE PEÇA",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -207,6 +313,11 @@
 						"key": "Content-Type",
 						"name": "Content-Type",
 						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
 						"type": "text"
 					}
 				],
@@ -230,10 +341,16 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/pecas/1",
+			"name": "DELETE DE PEÇA",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/pecas/1",
 					"host": [
@@ -250,7 +367,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/demandas",
+			"name": "CADASTRO DE DEMANDAS (REQUER AUTENTICAÇÃO)",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -258,11 +375,31 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "access-token",
+						"value": "iFPRWIO6oJZF7hNjh7qv0A",
+						"type": "text"
+					},
+					{
+						"key": "client",
+						"value": "KpPOq2LQ98Hry7WMBLafJg",
+						"type": "text"
+					},
+					{
+						"key": "uid",
+						"value": "victor.olimpio@exemplo.com",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\n{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 123,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n}\n\n\t"
+					"raw": "\n{\n\t\"usuario_id\": 2,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 123,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n}\n\n\t"
 				},
 				"url": {
 					"raw": "localhost:3000/demandas",
@@ -279,17 +416,63 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/demandas",
+			"name": "INDEX DE DEMANDAS (CACHE)",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/vnd.api+json"
+					},
+					{
+						"key": "If-None-Match",
+						"value": "W/\"724849752b3733b3fcea47d5d7665d87\"",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"url": {
-					"raw": "localhost:3000/demandas",
+					"raw": "localhost:3000/demandas/1",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
+						"demandas",
+						"1"
+					]
+				},
+				"description": "index de demandas"
+			},
+			"response": []
+		},
+		{
+			"name": "INDEX DE DEMANDAS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/usuarios/1/demandas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"1",
 						"demandas"
 					]
 				},
@@ -298,20 +481,81 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/demandas/1",
+			"name": "SHOW DE DEMANDA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "access-token",
+						"value": "QidPq634HPQETKeOC9xCHg",
+						"type": "text"
+					},
+					{
+						"key": "client",
+						"value": "saypuuBCGN3wXpmbvXVs7g",
+						"type": "text"
+					},
+					{
+						"key": "uid",
+						"value": "victor.olimpio@exemplo.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/demandas/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas",
+						"1"
+					]
+				},
+				"description": "index de demandas"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE DE DEMANDA (REQUER AUTENTICAÇÃO",
 			"request": {
 				"method": "PATCH",
 				"header": [
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/vnd.api+json"
+					},
+					{
+						"key": "access-token",
+						"value": "0jAJxLEdhxja3nw2rl4A2Q",
+						"type": "text"
+					},
+					{
+						"key": "client",
+						"value": "s6Y5RIEhyszJpnnswbELng",
+						"type": "text"
+					},
+					{
+						"key": "uid",
+						"value": "victor.olimpio@exemplo.com",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 12,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n}"
+					"raw": "{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 12,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n\t\"situacao\": 1\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/demandas/1",
@@ -326,7 +570,8 @@
 					"query": [
 						{
 							"key": "",
-							"value": ""
+							"value": "",
+							"disabled": true
 						},
 						{
 							"key": "",
@@ -340,10 +585,16 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/demandas/1",
+			"name": "DELETE DE DEMANDA (REQUER AUTENTICAÇÃO)",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/demandas/1",
 					"host": [

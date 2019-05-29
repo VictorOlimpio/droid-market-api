@@ -1,15 +1,14 @@
 class DemandasController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_demanda, except: [:index, :create]
+  before_action :authenticate_user!, only: [:create, :update, :delete]
   before_action :set_demandas, only: [:index, :show]
 
   def index
-    paginate json: @demandas
+    paginate json: @demandas if stale?(etag: @demandas)
   end
 
   def show
     (params[:usuario_id] || params[:peca_id])? paginate(json: @demandas) :
-        render(json: @demanda)
+        render(json: Demanda.find(params[:id]))
   end
 
   def create
@@ -19,30 +18,22 @@ class DemandasController < ApplicationController
   end
 
   def update
+    @demanda = Demanda.find(params[:id])
     @demanda.update(demanda_params) ? render(json: @demanda) :
         render(json: @demanda.errors, status: :unprocessable_entity)
   end
 
   def destroy
+    @demanda = Demanda.find(params[:id])
     render @demanda.errors unless @demanda.destroy
   end
 
   private
 
-  def set_demanda
-    @demanda = Demanda.find(params[:id]) unless (params[:usuario_id] || params[:peca_id])
-  end
-
   def set_demandas
-    if params[:usuario_id]
-      @demandas = Usuario.find(params[:usuario_id]).demandas
-      return @demandas
-    end
-    if params[:peca_id]
-      @demandas = Peca.find(params[:peca_id]).demandas
-      return @demandas
-    end
-    @demandas = Demanda.all.page(params[:page])
+    @demandas = Usuario.find(params[:usuario_id]).demandas if params[:usuario_id]
+    @demandas = Peca.find(params[:peca_id]).demandas if params[:peca_id]
+    @demandas = Demanda.all.page(params[:page]) unless (params[:usuario_id] || params[:peca_id])
   end
 
   def demanda_params
