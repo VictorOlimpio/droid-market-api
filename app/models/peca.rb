@@ -1,4 +1,6 @@
 class Peca < ApplicationRecord
+  paginates_per 5
+
   enum tipo: %i[cabeca tronco braco_esquerdo braco_direito perna_esquerda perna_direita blaster]
 
   has_many :demandas

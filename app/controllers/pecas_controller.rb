@@ -2,7 +2,7 @@ class PecasController < ApplicationController
   before_action :set_peca, except: [:index, :create]
 
   def index
-    @pecas = Peca.all
+    @pecas = Peca.all.page(params[:page])
     render json: @pecas
   end
 
