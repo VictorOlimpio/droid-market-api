@@ -2,8 +2,8 @@ class UsuariosController < ApplicationController
   before_action :set_usuario, except: [:index, :create]
 
   def index
-    @usuarios = Usuario.all.order(:nome)
-    render json: @usuarios
+    @usuarios = Usuario.all.order(:nome).page(params[:page])
+    paginate json: @usuarios
   end
 
   def show
