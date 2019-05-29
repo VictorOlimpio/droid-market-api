@@ -49,6 +49,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    api-pagination (4.8.2)
     arel (9.0.0)
     ast (2.4.0)
     bcrypt (3.1.12)
@@ -99,6 +100,18 @@ GEM
     jaro_winkler (1.5.2)
     json (2.1.0)
     jsonapi-renderer (0.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -236,6 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  api-pagination
   bootsnap (>= 1.1.0)
   byebug
   capybara
@@ -244,6 +258,7 @@ DEPENDENCIES
   devise_token_auth (= 1.0.0)
   factory_bot_rails
   faker
+  kaminari
   listen (>= 3.0.5, < 3.2)
   mysql2
   puma (~> 3.11)

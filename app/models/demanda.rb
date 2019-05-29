@@ -1,5 +1,8 @@
 class Demanda < ApplicationRecord
 
+  # Kaminari
+  paginates_per 5
+
   enum situacao: %i[aberta finalizada]
 
   belongs_to :usuario

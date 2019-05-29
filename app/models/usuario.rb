@@ -1,4 +1,6 @@
 class Usuario < ApplicationRecord
+  paginates_per 5
+
   enum tipo: %i[anunciante administrador]
 
   has_many :demandas

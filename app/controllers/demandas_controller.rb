@@ -1,13 +1,14 @@
 class DemandasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_demanda, except: [:index, :create]
   before_action :set_demandas, only: [:index, :show]
 
   def index
-    render json: @demandas
+    paginate json: @demandas
   end
 
   def show
-    (params[:usuario_id] || params[:peca_id])? render(json: @demandas) :
+    (params[:usuario_id] || params[:peca_id])? paginate(json: @demandas) :
         render(json: @demanda)
   end
 
@@ -41,7 +42,7 @@ class DemandasController < ApplicationController
       @demandas = Peca.find(params[:peca_id]).demandas
       return @demandas
     end
-    @demandas = Demanda.all
+    @demandas = Demanda.all.page(params[:page])
   end
 
   def demanda_params

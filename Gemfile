@@ -8,10 +8,10 @@ gem 'rails', '~> 5.2.2'
 # Database
 gem 'mysql2'
 
+# Serializers
 gem 'active_model_serializers'
+# Server
 gem 'puma', '~> 3.11'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
 
 # Authorization
 gem 'pundit'
@@ -20,6 +20,10 @@ gem 'pundit'
 gem 'devise_token_auth', '1.0.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# Pagination
+gem 'kaminari'
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
