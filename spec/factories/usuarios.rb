@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :usuario do
-    nome { "MyString" }
-    cpf { 1 }
-    telefone { "MyString" }
-    email { "MyString" }
-    tipo { 1 }
+    sequence(:nome) {|n| "Fulano #{n}" }
+    sequence(:cpf){ |id| "100000#{id}" }
+    sequence(:telefone) { |n| "1234#{n}" }
+    email { "fulano@email.com" }
+    tipo { 0 }
   end
 end
