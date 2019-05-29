@@ -13,6 +13,15 @@ class Demanda < ApplicationRecord
      email: self.usuario.email,
      telefone: self.usuario.telefone}
   end
+  def endereco_entrega
+    {rua: self.rua,
+     bairro: self.bairro,
+     cidade: self.cidade,
+     uf: self.uf,
+     numero: self.numero,
+     cep: self.cep,
+     complemento: self.complemento}
+  end
 
   def descricao
     self.peca.descricao
@@ -20,7 +29,7 @@ class Demanda < ApplicationRecord
 
   def as_json(options={})
     super(root: true,
-        methods: [:contato, :descricao])
+        methods: [:contato, :descricao, :endereco_entrega])
   end
 
 end

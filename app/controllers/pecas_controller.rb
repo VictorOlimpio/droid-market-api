@@ -29,6 +29,10 @@ class PecasController < ApplicationController
   private
 
   def set_peca
+    if params[:demanda_id]
+      @peca = Demanda.find(params[:demanda_id]).peca
+      return @peca
+    end
     @peca = Peca.find(params[:id])
   end
 

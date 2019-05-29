@@ -1,2 +1,2 @@
-ActiveModelSerializers.config.adapter = :json
+ActiveModelSerializers.config.adapter = :json_api
 ActiveModel::Serializer.config.default_includes = '**'

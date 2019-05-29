@@ -1,24 +1,24 @@
 class DemandasController < ApplicationController
   before_action :set_demanda, except: [:index, :create]
+  before_action :set_demandas, only: [:index, :show]
 
   def index
-    @demandas = Demanda.all
-    filter_by_situacao if params[:situacao]
-    @demandas.any? ? render(json: @demandas.as_json) : render(json: @demandas)
+    render json: @demandas
   end
 
   def show
-    render json: @demanda.as_json
+    (params[:usuario_id] || params[:peca_id])? render(json: @demandas) :
+        render(json: @demanda)
   end
 
   def create
     @demanda = Demanda.new(demanda_params)
-    @demanda.save ? render(json: @demanda.as_json, status: :created) :
+    @demanda.save ? render(json: @demanda, status: :created) :
         render(json: @demanda.errors, status: :unprocessable_entity)
   end
 
   def update
-    @demanda.update(demanda_params) ? render(json: @demanda.as_json) :
+    @demanda.update(demanda_params) ? render(json: @demanda) :
         render(json: @demanda.errors, status: :unprocessable_entity)
   end
 
@@ -29,7 +29,19 @@ class DemandasController < ApplicationController
   private
 
   def set_demanda
-    @demanda = Demanda.find(params[:id])
+    @demanda = Demanda.find(params[:id]) unless (params[:usuario_id] || params[:peca_id])
+  end
+
+  def set_demandas
+    if params[:usuario_id]
+      @demandas = Usuario.find(params[:usuario_id]).demandas
+      return @demandas
+    end
+    if params[:peca_id]
+      @demandas = Peca.find(params[:peca_id]).demandas
+      return @demandas
+    end
+    @demandas = Demanda.all
   end
 
   def demanda_params

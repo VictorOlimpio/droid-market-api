@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_020504) do
+ActiveRecord::Schema.define(version: 2019_05_29_141520) do
 
   create_table "demandas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "usuario_id"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_05_26_020504) do
 
   create_table "usuarios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
-    t.string "cpf"
     t.string "telefone"
     t.string "email"
     t.integer "tipo", default: 0

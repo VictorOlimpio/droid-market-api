@@ -29,10 +29,14 @@ class UsuariosController < ApplicationController
   private
 
   def set_usuario
+    if params[:demanda_id]
+      @usuario = Demanda.find(params[:demanda_id]).usuario
+      return @usuario
+    end
     @usuario = Usuario.find(params[:id])
   end
 
   def usuario_params
-    params.require(:usuario).permit(:nome, :cpf, :telefone, :email, :tipo)
+    params.require(:usuario).permit(:nome, :telefone, :email, :tipo)
   end
 end

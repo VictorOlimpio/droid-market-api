@@ -3,6 +3,10 @@ class PecaSerializer < ActiveModel::Serializer
 
   attributes :id, :tipo, :descricao, :valor
 
-  has_many :demandas
+  has_many :demandas do
+    link(:related) { peca_demandas_url(object.id) }
+  end
+
+  link(:self) { peca_url(object.id) }
 
 end

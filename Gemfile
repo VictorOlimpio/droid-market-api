@@ -16,6 +16,9 @@ gem 'puma', '~> 3.11'
 # Authorization
 gem 'pundit'
 
+# Authentication
+gem 'devise_token_auth', '1.0.0'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

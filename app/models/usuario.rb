@@ -3,8 +3,7 @@ class Usuario < ApplicationRecord
 
   has_many :demandas
 
-  validates :nome, :cpf, presence: true
-  validates :cpf, uniqueness: true
+  validates :nome, presence: true
   validates :tipo, inclusion: { in: Usuario.tipos.keys }
 
 end
