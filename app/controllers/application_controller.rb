@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
-  before_action :ensure_json_request, :configure_permitted_parameters, if: :devise_controller?
+  include Pundit
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :ensure_json_request
+
+  def pundit_user
+    current_usuario
+  end
 
   def ensure_json_request
     return if request.headers["Accept"] =~ /json/
