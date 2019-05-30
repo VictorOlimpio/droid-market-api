@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+Antes de dar build no container:
+sudo mkdir /opt/mysql_data
 * Ruby version
 
 * System dependencies

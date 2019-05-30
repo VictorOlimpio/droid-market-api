@@ -3,14 +3,16 @@ development:
   encoding: utf8
   database: droid_development
   username: root
-  password: tzzk7662
+  host: mysql-droid-market
+  password:
 
 test: &test
   adapter: mysql2
   encoding: utf8
   database: droid_test
   username: root
-  password: tzzk7662
+  host: mysql-droid-market
+  password:
 
 cucumber:
   <<: *test
