@@ -4,11 +4,11 @@ class DemandaSerializer < ActiveModel::Serializer
   attributes :id, :usuario_id, :peca_id, :situacao
 
   belongs_to :usuario do
-    link(:related) { demanda_usuario_url(object.id) }
+    link(:related) { usuario_url(object.usuario_id)}
   end
 
   belongs_to :peca do
-    link(:related) { demanda_peca_url(object.id) }
+    link(:related) { peca_url(object.peca_id)}
   end
 
   meta {{contato: object.contato, endereco_etrega: object.endereco_entrega, descricao: object.descricao}}

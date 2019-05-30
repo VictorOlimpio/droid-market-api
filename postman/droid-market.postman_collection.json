@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "SIGN_UP",
+			"name": "SIGN_UP Usuario Anunciante",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -24,7 +24,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\": \"victor.olimpio@exemplo.com\",\n\t\"password\": \"12345678\",\n\t\"password_confirmation\": \"12345678\"\n}"
+					"raw": "{\n\t\"email\": \"victor.olimpio@exemplo.com\",\n\t\"password\": \"12345678\",\n\t\"password_confirmation\": \"12345678\",\n\t\"nome\": \"Victor Olimpio\",\n\t\"telefone\": \"987654321\"\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/auth/",
@@ -42,7 +42,7 @@
 			"response": []
 		},
 		{
-			"name": "SIGN_IN",
+			"name": "SIGN_IN Usuario Anunciante",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -77,35 +77,73 @@
 			"response": []
 		},
 		{
-			"name": "CADASTRO DE USUARIO",
+			"name": "SIGN_UP Usuario Admin",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
+						"key": "Accept",
+						"value": "application/vnd.api+json",
 						"type": "text"
 					},
 					{
-						"key": "Accept",
-						"value": "application/vnd.api+json",
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"Victor Olimpio\",\n\t\"email\": \"victor@olimpio.com\",\n\t\"cpf\": \"3245678\",\n\t\"telefone\": \"987654321\"\n\t\n}"
+					"raw": "{\n\t\"email\": \"olimpio.olimpio@exemplo.com\",\n\t\"password\": \"87654321\",\n\t\"password_confirmation\": \"87654321\",\n\t\"nome\": \"Fulano da Silva\",\n\t\"telefone\": \"987654321\",\n\t\"tipo\": 1\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/usuarios",
+					"raw": "localhost:3000/auth/",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"usuarios"
+						"auth",
+						""
 					]
-				}
+				},
+				"description": "sign_up"
+			},
+			"response": []
+		},
+		{
+			"name": "SIGN_IN Usuario Admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vdn.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"olimpio.olimpio@exemplo.com\",\n\t\"password\": \"87654321\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/auth/sign_in",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"sign_in"
+					]
+				},
+				"description": "sign_in"
 			},
 			"response": []
 		},
@@ -168,13 +206,13 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					},
 					{
 						"key": "Accept",
-						"value": "application/vnd.api+json",
-						"type": "text"
+						"type": "text",
+						"value": "application/vnd.api+json"
 					}
 				],
 				"url": {
@@ -312,13 +350,13 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					},
 					{
 						"key": "Accept",
-						"value": "application/vnd.api+json",
-						"type": "text"
+						"type": "text",
+						"value": "application/vnd.api+json"
 					}
 				],
 				"body": {
@@ -347,8 +385,8 @@
 				"header": [
 					{
 						"key": "Accept",
-						"value": "application/vnd.api+json",
-						"type": "text"
+						"type": "text",
+						"value": "application/vnd.api+json"
 					}
 				],
 				"url": {
@@ -367,7 +405,7 @@
 			"response": []
 		},
 		{
-			"name": "CADASTRO DE DEMANDAS (REQUER AUTENTICAÇÃO)",
+			"name": "CADASTRO DE DEMANDAS Anunciante (REQUER AUTENTICAÇÃO)",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -383,18 +421,67 @@
 					},
 					{
 						"key": "access-token",
-						"value": "iFPRWIO6oJZF7hNjh7qv0A",
+						"value": "BeRXwxfXAOGInvWdIIcWkg",
 						"type": "text"
 					},
 					{
 						"key": "client",
-						"value": "KpPOq2LQ98Hry7WMBLafJg",
+						"value": "dQWHPWdBF7E9ULq5BTS-rw",
 						"type": "text"
 					},
 					{
 						"key": "uid",
 						"value": "victor.olimpio@exemplo.com",
 						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 123,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n}\n\n\t"
+				},
+				"url": {
+					"raw": "localhost:3000/demandas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas"
+					]
+				},
+				"description": "cria uma demanda"
+			},
+			"response": []
+		},
+		{
+			"name": "CADASTRO DE DEMANDA Admin (REQUER AUTENTICAÇÃO)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/vnd.api+json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "U2a-lFYZ-7_dxL4Au59VWg"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "crsbX_NP638aK5_Y1Xt40A"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "olimpio.olimpio@exemplo.com"
 					}
 				],
 				"body": {
@@ -453,57 +540,29 @@
 			"response": []
 		},
 		{
-			"name": "INDEX DE DEMANDAS",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/vnd.api+json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3000/usuarios/1/demandas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"usuarios",
-						"1",
-						"demandas"
-					]
-				},
-				"description": "index de demandas"
-			},
-			"response": []
-		},
-		{
 			"name": "SHOW DE DEMANDA",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Accept",
-						"value": "application/vnd.api+json",
-						"type": "text"
+						"type": "text",
+						"value": "application/vnd.api+json"
 					},
 					{
 						"key": "access-token",
-						"value": "QidPq634HPQETKeOC9xCHg",
-						"type": "text"
+						"type": "text",
+						"value": "QidPq634HPQETKeOC9xCHg"
 					},
 					{
 						"key": "client",
-						"value": "saypuuBCGN3wXpmbvXVs7g",
-						"type": "text"
+						"type": "text",
+						"value": "saypuuBCGN3wXpmbvXVs7g"
 					},
 					{
 						"key": "uid",
-						"value": "victor.olimpio@exemplo.com",
-						"type": "text"
+						"type": "text",
+						"value": "victor.olimpio@exemplo.com"
 					}
 				],
 				"url": {
@@ -522,7 +581,7 @@
 			"response": []
 		},
 		{
-			"name": "UPDATE DE DEMANDA (REQUER AUTENTICAÇÃO",
+			"name": "UPDATE DE DEMANDA (REQUER AUTENTICAÇÃO)",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -539,12 +598,12 @@
 					},
 					{
 						"key": "access-token",
-						"value": "0jAJxLEdhxja3nw2rl4A2Q",
+						"value": "BeRXwxfXAOGInvWdIIcWkg",
 						"type": "text"
 					},
 					{
 						"key": "client",
-						"value": "s6Y5RIEhyszJpnnswbELng",
+						"value": "dQWHPWdBF7E9ULq5BTS-rw",
 						"type": "text"
 					},
 					{
@@ -555,7 +614,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 12,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678\n\t\"situacao\": 1\n}"
+					"raw": "{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 12,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678,\n\t\"situacao\": 1\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/demandas/1",
@@ -585,14 +644,77 @@
 			"response": []
 		},
 		{
+			"name": "UPDATE DE DEMANDA negado (REQUER AUTENTICAÇÃO)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/vnd.api+json"
+					},
+					{
+						"key": "access-token",
+						"type": "text",
+						"value": "0jAJxLEdhxja3nw2rl4A2Q"
+					},
+					{
+						"key": "client",
+						"type": "text",
+						"value": "s6Y5RIEhyszJpnnswbELng"
+					},
+					{
+						"key": "uid",
+						"type": "text",
+						"value": "victor.olimpio@exemplo.com"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usuario_id\": 1,\n\t\"peca_id\": 1,\n\t\"rua\": \"Rua Oliveira\",\n\t\"bairro\": \"Bairro São Gonça\",\n\t\"cidade\": \"São Gonça\",\n\t\"numero\": 12,\n\t\"uf\": \"RJ\",\n\t\"cep\": 12345678,\n\t\"situacao\": 1\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/demandas/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demandas",
+						"4"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "edita uma demanda"
+			},
+			"response": []
+		},
+		{
 			"name": "DELETE DE DEMANDA (REQUER AUTENTICAÇÃO)",
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "Accept",
-						"value": "application/vnd.api+json",
-						"type": "text"
+						"type": "text",
+						"value": "application/vnd.api+json"
 					}
 				],
 				"url": {

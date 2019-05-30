@@ -3,8 +3,6 @@ class UsuarioSerializer < ActiveModel::Serializer
 
   attributes :id, :nome, :telefone, :email, :tipo
 
-  has_many :demandas do
-    link(:related) { usuario_demandas_url(object.id) }
-  end
+  has_many :demandas
 
 end
