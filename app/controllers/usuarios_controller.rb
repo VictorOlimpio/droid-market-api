@@ -3,21 +3,15 @@ class UsuariosController < ApplicationController
 
   def index
     @usuarios = Usuario.all.order(:nome).page(params[:page])
-    paginate json: @usuarios
+    paginate json: @usuarios, include: [:demandas]
   end
 
   def show
-    render json: @usuario
+    render json: @usuario, include: [:demandas]
   end
 
-  # def create
-  #   @usuario = Usuario.new(usuario_params)
-  #   @usuario.save ? render(status: :created) :
-  #       render(json: @usuario.errors, status: :unprocessable_entity)
-  # end
-
   def update
-    @usuario.update(usuario_params) ? render(json: @usuario) :
+    @usuario.update(usuario_params) ? render(json: @usuario, include: [:demandas]) :
         render(json: @usuario.errors, status: :unprocessable_entity)
   end
 
@@ -29,10 +23,6 @@ class UsuariosController < ApplicationController
   private
 
   def set_usuario
-    if params[:demanda_id]
-      @usuario = Demanda.find(params[:demanda_id]).usuario
-      return @usuario
-    end
     @usuario = Usuario.find(params[:id])
   end
 

@@ -5,4 +5,6 @@ class UsuarioSerializer < ActiveModel::Serializer
 
   has_many :demandas
 
+  link(:self) { usuario_url(object.id) }
+
 end
