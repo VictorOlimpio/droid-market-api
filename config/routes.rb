@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'Usuario', at: 'auth'
-  resources :usuarios do
+  resources :usuarios, except: :create do
     resource :demandas, only: :show
   end
   resources :pecas do

@@ -1,8 +1,9 @@
 class DemandasController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :delete]
+  before_action :authenticate_usuario!#, only: [:index, :create, :update, :delete]
   before_action :set_demandas, only: [:index, :show]
 
   def index
+    authorize(Demanda)
     paginate json: @demandas if stale?(etag: @demandas)
   end
 
