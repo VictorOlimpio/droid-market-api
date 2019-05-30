@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Usuario, type: :model do
 
-  subject { Usuario.new }
+  subject { create :usuario }
 
   describe 'validations' do
-    # it { is_expected.to validate_inclusion_of(:tipo).in_array(Usuario.tipos.keys) }
+    it { is_expected.to define_enum_for(:tipo).with(Usuario.tipos.keys) }
     it { is_expected.to validate_presence_of(:nome) }
   end
 

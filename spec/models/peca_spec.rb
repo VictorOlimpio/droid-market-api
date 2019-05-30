@@ -6,7 +6,7 @@ RSpec.describe Peca, type: :model do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:valor) }
-    # it { is_expected.to validate_inclusion_of(:tipo).in_array(Peca.tipos.keys)}
+    it { is_expected.to define_enum_for(:tipo).with(Peca.tipos.keys) }
   end
 
   describe 'associations' do
