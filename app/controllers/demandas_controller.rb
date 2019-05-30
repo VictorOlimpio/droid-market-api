@@ -4,7 +4,7 @@ class DemandasController < ApplicationController
 
   def index
     authorize(Demanda)
-    policy_scope(load_demandas)
+    load_demandas
     paginate json: @demandas if stale?(etag: @demandas)
   end
 
@@ -38,7 +38,7 @@ class DemandasController < ApplicationController
   end
 
   def load_demandas
-    @demandas = (Demanda.all.page(params[:page]))
+    @demandas = policy_scope(Demanda.all.page(params[:page]))
   end
 
   def load_demandas_usuario(usuario_param)
