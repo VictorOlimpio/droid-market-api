@@ -1,0 +1,24 @@
+version: '2'
+services:
+  api:
+    build:
+      context: ../
+      dockerfile: docker-rails/Dockerfile
+    command: bash -c "./docker-rails/make-db.sh"
+    ports:
+      - "3000:3000"
+    links:
+      - mysql-droid-market:mysql-db
+    depends_on:
+      - 'mysql-droid-market'
+    image: droid-market
+  mysql-droid-market:
+    image: mysql/mysql-server:5.6
+    volumes:
+      - /opt/mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    stdin_open: true
+    tty: true
+
