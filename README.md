@@ -1,26 +1,9 @@
-# README
+# DROID-MARKET-API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta API é destinada a realização de cotação de peças específicas de droids, atendendo asssim, as necessidades da Federação de Comércio.
 
-Things you may want to cover:
+A API foi desenvolvida em Ruby on Rails, utilizando a versão 2.6.1 do Ruby, e a versão 5.2.3 do Rails.
+
 
 Antes de dar build no container:
 sudo mkdir /opt/mysql_data
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
