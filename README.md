@@ -71,7 +71,7 @@ sudo docker-compose up
 ## EXECUTANDO
 
 Com a API executando, é possível realizar as requisições necessárias para a aplicação.
-Os endpoints foram gerados e exportados pelo Postman (https://www.getpostman.com/). Os endpoints se encontram dentro da pasta postman. Em seguida importe os endpoints no Postman.
+Os endpoints foram gerados e exportados em uma Collection Postman (https://www.getpostman.com/). Os endpoints se encontram dentro da pasta postman. Em seguida importe os endpoints no Postman.
 
 Vale lembrar que os endpoints estão nomeados para melhor compreensão do que realizam.
 
