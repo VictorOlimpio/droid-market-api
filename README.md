@@ -2,11 +2,51 @@
 
 Esta API é destinada a realização de cotação de peças específicas de droids, atendendo asssim, as necessidades da Federação de Comércio.
 
-A API foi desenvolvida em Ruby on Rails, utilizando a versão 2.6.1 do Ruby, e a versão 5.2.3 do Rails. O banco de dados utizliado é o MySQL.
+## ARQUITETURA
+
+Como foi definido pela Federação de Comercio, existem 3 entidades definidas na API: 
+
+* Usuario
+* Peça
+* Demanda
+
+Um Usuário além de ser responsável pela autenticação na API, possui as seguintes informações:
+
+* nome
+* telefone
+* email
+* tipo (Administrador, Anunciante)
+
+Por padrão, se um tipo não for definido ao Usuário, ele será criado como do tipo Anunciante. Um Usuário pode possuir muitas Demandas.
+
+Uma Peça é definida da seguinte forma:
+
+* tipo
+* descrição
+* valor
+
+Uma Peça pode possuir muitas Demandas.
+
+Uma Demanda possui as seguintes informações:
+
+* rua
+* bairro
+* cidade
+* uf
+* numero
+* cep
+* complemento
+* situação
+
+Os campos (rua, bairro, cidade, uf, numero, cep, complemento) formam a informação de endereço de entrega. A descrição da Peça é obtida através da relação de Demanda com peça, bem como as informações de contato do Usuário. Dessa forma uma Demanda pertence a um Usuário e a uma Peça.
 
 ## CONFIGURAÇÃO
 
-A configuração é bem simples. A aplicação será executada em um cotainer Docker. Os arquivos Dockerfile e doker-compose encontram-se dentro da pasta doker-rails.
+A API foi desenvolvida em Ruby on Rails, utilizando a versão 2.6.1 do Ruby, e a versão 5.2.3 do Rails. O banco de dados utizliado é o MySQL.
+
+A API atende aos padrões do JSON API, implementa autenticação, o padrão cliente-servidor, possui paginação e possibilita cacheamento, atendendo as CONSTRAINTS de APIs RESTFUL.
+
+A aplicação será executada em um container Docker. Os arquivos Dockerfile e doker-compose encontram-se dentro da pasta doker-rails.
 
 Antes de dar build no container é importante que a pasta /opt/mysql_data seja criada, desta forma seu banco de dados não será perdido quando o container for encerrado.
 
@@ -47,4 +87,5 @@ A API utiliza a gem devise_token_auth,qeu é uma autenticação simples, multi-c
 
 Para adquirir esses valores basta copiar do header do response da requisição SIGN_IN do usuário desejado.
 
+Todas as requisições para GET, POST, PATCH, DELETE estão listadas na collection do Postman.
 
