@@ -41,9 +41,9 @@ Em seguida para se autenticar na API é necessário utilizar as requisições SI
 
 A API utiliza a gem devise_token_auth,qeu é uma autenticação simples, multi-client e segura para o Rails. Por conta disso, nas requisições que exigem autenticação, envie no header da requisição os valores:
 
-*access-token
-*client
-*uid
+* access-token
+* client
+* uid
 
 Para adquirir esses valores basta copiar do header do response da requisição SIGN_IN do usuário desejado.
 
