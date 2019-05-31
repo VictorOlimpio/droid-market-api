@@ -1,3 +1,5 @@
+require 'core_ext/active_record_enum_enum_type'
+
 class Usuario < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

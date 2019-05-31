@@ -1,3 +1,5 @@
+require 'core_ext/active_record_enum_enum_type'
+
 class Demanda < ApplicationRecord
 
   # Kaminari
