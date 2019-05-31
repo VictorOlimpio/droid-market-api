@@ -36,7 +36,7 @@ Uma Demanda possui as seguintes informações:
 * numero
 * cep
 * complemento
-* situação
+* situação (Aberta, Finalizada)
 
 Os campos (rua, bairro, cidade, uf, numero, cep, complemento) formam a informação de endereço de entrega. A descrição da Peça é obtida através da relação de Demanda com peça, bem como as informações de contato do Usuário. Dessa forma uma Demanda pertence a um Usuário e a uma Peça.
 
