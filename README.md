@@ -51,23 +51,23 @@ A aplicação será executada em um container Docker. Os arquivos Dockerfile e d
 Antes de dar build no container é importante que a pasta /opt/mysql_data seja criada, desta forma seu banco de dados não será perdido quando o container for encerrado.
 
 Abra o terminal e digite:
-
+```
 sudo mkdir /opt/mysql_data
-
+```
 Feito isso, é possível construir o container.
 
 Para construir o container acesse a pasta docker-rails:
-
+```
 cd docker-rails/
-
+```
 Dentro da pasta execute o comando abaixo para dar build no container:
-
+```
 sudo docker-compose build
-
+```
 Depois que o container tiver sido criado com sucesso execute o comando abaixo para subir a aplicação:
-
+```
 sudo docker-compose up
-
+```
 ## EXECUTANDO
 
 Com a API executando, é possível realizar as requisições necessárias para a aplicação.
