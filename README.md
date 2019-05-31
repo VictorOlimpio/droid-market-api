@@ -38,7 +38,7 @@ Uma Demanda possui as seguintes informações:
 * complemento
 * situação (Aberta, Finalizada)
 
-Os campos (rua, bairro, cidade, uf, numero, cep, complemento) formam a informação de endereço de entrega. A descrição da Peça é obtida através da relação de Demanda com peça, bem como as informações de contato do Usuário. Dessa forma uma Demanda pertence a um Usuário e a uma Peça.
+Os campos (rua, bairro, cidade, uf, numero, cep, complemento) formam a informação de endereço de entrega. A descrição da Peça é obtida através da relação de Demanda com peça, bem como as informações de contato do Usuário. Dessa forma uma Demanda pertence à um Usuário e à uma Peça.
 
 ## CONFIGURAÇÃO
 
@@ -60,11 +60,7 @@ Para construir o container acesse a pasta docker-rails:
 ```
 cd docker-rails/
 ```
-Dentro da pasta execute o comando abaixo para dar build no container:
-```
-sudo docker-compose build
-```
-Depois que o container tiver sido criado com sucesso execute o comando abaixo para subir a aplicação:
+Execute o comando abaixo para criar o container e subir a aplicação:
 ```
 sudo docker-compose up
 ```
