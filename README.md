@@ -83,5 +83,5 @@ A API utiliza a gem devise_token_auth,qeu é uma autenticação simples, multi-c
 
 Para adquirir esses valores basta copiar do header do response da requisição SIGN_IN do usuário desejado.
 
-Todas as requisições para GET, POST, PATCH, DELETE estão listadas na collection do Postman.
+Todas as requisições para GET, POST, PATCH, DELETE das entidades da API estão listadas na collection do Postman.
 
