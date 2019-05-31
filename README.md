@@ -2,8 +2,49 @@
 
 Esta API é destinada a realização de cotação de peças específicas de droids, atendendo asssim, as necessidades da Federação de Comércio.
 
-A API foi desenvolvida em Ruby on Rails, utilizando a versão 2.6.1 do Ruby, e a versão 5.2.3 do Rails.
+A API foi desenvolvida em Ruby on Rails, utilizando a versão 2.6.1 do Ruby, e a versão 5.2.3 do Rails. O banco de dados utizliado é o MySQL.
 
+## CONFIGURAÇÃO
 
-Antes de dar build no container:
+A configuração é bem simples. A aplicação será executada em um cotainer Docker. Os arquivos Dockerfile e doker-compose encontram-se dentro da pasta doker-rails.
+
+Antes de dar build no container é importante que a pasta /opt/mysql_data seja criada, desta forma seu banco de dados não será perdido quando o container for encerrado.
+
+Abra o terminal e digite:
+
 sudo mkdir /opt/mysql_data
+
+Feito isso, é possível construir o container.
+
+Para construir o container acesse a pasta docker-rails:
+
+cd docker-rails/
+
+Dentro da pasta execute o comando abaixo para dar build no container:
+
+sudo docker-compose build
+
+Depois que o container tiver sido criado com sucesso execute o comando abaixo para subir a aplicação:
+
+sudo docker-compose up
+
+## EXECUTANDO
+
+Com a API executando, é possível realizar as requisições necessárias para a aplicação.
+Os endpoints foram gerados e exportados pelo Postman (https://www.getpostman.com/). Os endpoints se encontram dentro da pasta postman. Em seguida importe os endpoints no Postman.
+
+Vale lembrar que os endpoints estão nomeados para melhor compreensão do que realizam.
+
+Primeiramente é necessário se cadastrar utilizando as requisições SIGN_UP. Existem duas requisições, uma para cada tipo de usuario.
+
+Em seguida para se autenticar na API é necessário utilizar as requisições SIGN_IN.
+
+A API utiliza a gem devise_token_auth,qeu é uma autenticação simples, multi-client e segura para o Rails. Por conta disso, nas requisições que exigem autenticação, envie no header da requisição os valores:
+
+*access-token
+*client
+*uid
+
+Para adquirir esses valores basta copiar do header do response da requisição SIGN_IN do usuário desejado.
+
+
