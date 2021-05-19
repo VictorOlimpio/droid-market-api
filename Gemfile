@@ -11,7 +11,7 @@ gem 'mysql2'
 # Serializers
 gem 'active_model_serializers'
 # Server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 
 # Authorization
 gem 'pundit'
